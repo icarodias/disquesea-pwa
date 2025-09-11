@@ -1,0 +1,15 @@
+[
+    {
+        "code":1,
+        "name":"Camarão",
+        "amount": 1000,
+        "type": "Kg"
+    },
+    {
+        "code":3,
+        "name":"Galinha ",
+        "amount": 202,
+        "type": "uni."
+    }
+
+]

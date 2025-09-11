@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Disquesea PWA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="./assets/disquesea-logo.png" width="120" height="120" alt="Disquesea">
+    </header>
+    <main class='container'>
+        <section id="control">
+            <div class="card">
+                <a href="#" class="button operation" id="buttonIn">
+                    <span>Entrada</span>
+                    <img src="./assets/income.svg" alt="Imagem de entradas">
+                </a>
+            </div>
+            <div class="card">
+                <a href="#" class="button operation" id="buttonOut">
+                    <span>Saída</span>
+                    <img src="./assets/expense.svg" alt="Imagem de saídas">
+                </a>
+            </div>
+        </section>
+        <section id="tablebox">
+            <h2>Consulta</h2>
+            <table id="table-search">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <a href="#" class="button new" id="buttonSearch">Consultar</a>
+        </section>
+        <section id="tablebox">
+            <h2>Histórico</h2>
+            <table id="table-records">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Alteração</th>
+                        <th>Quantidade</th>
+                        <th>Tipo</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <a href="#" class="button new" onclick='Modal.send.open()'>Enviar para whatsapp</a>
+        </section>
+    </main>
+    <!-- Search -->
+    <div class='modal-overlay-search'>
+        <div class='modal'>
+            <div id = 'form'>
+                <h2>Consulta</h2>
+                <form action='' id="searchForm">
+                    <div class='input-group'>
+                        <label for='codes'>Códigos</label>
+                        <input type='text' id='searchCodes' name='codes' placeholder ='Código'>
+                        <small class='help'>Use vírgula para separar os códigos.</small>
+                    </div>
+                    <div class='input-group actions'>
+                        <a  hrel='#' class='button cancel' id="buttonSearchClose">Cancelar</a>
+                        <button>Consultar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- In -->
+    <div class='modal-overlay-in'>
+        <div class='modal'>
+            <div id = 'form'>
+                <h2>Entrada</h2>
+                <form action='' onsubmit='Form.in.submit(event)'>
+                    <div class='input-group'>
+                        <label for='code'>Código</label>
+                        <input type='number' id='codeIn' name='code' placeholder ='Código'>
+                    </div>
+                    <div class='input-group'>
+                        <label for='quantidade'>Quantidade</label>
+                        <input type='number' step="0.001" id='amountIn' name='quantidade' placeholder ='Quantidade'>
+                    </div>
+                    <div class='input-group actions'>
+                        <a  hrel='#' class='button cancel' id="buttonInClose">Cancelar</a>
+                        <button>Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Out -->
+    <div class='modal-overlay-out'>
+        <div class='modal'>
+            <div id = 'form'>
+                <h2>Saída</h2>
+                <form action='' onsubmit='Form.out.submit(event)'>
+                    <div class='input-group'>
+                        <label for='codigo'>Código</label>
+                        <input type='number' id='codeOut' name='code' placeholder ='Código'>
+                    </div>
+                    <div class='input-group'>
+                        <label for='quantidade'>Quantidade</label>
+                        <input type='number'  step="0.001" id='quantidadeOut' name='quantidade' placeholder ='Quantidade'>
+                    </div>
+                    <div class='input-group actions'>
+                        <a  hrel='#' class='button cancel' id="buttonOutClose">Cancelar</a>
+                        <button>Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>
