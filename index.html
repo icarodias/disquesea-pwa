@@ -86,14 +86,14 @@
         <div class='modal'>
             <div id = 'form'>
                 <h2>Entrada</h2>
-                <form action='' onsubmit='Form.in.submit(event)'>
+                <form action='' id='inForm'>
                     <div class='input-group'>
                         <label for='code'>Código</label>
                         <input type='number' id='codeIn' name='code' placeholder ='Código'>
                     </div>
                     <div class='input-group'>
                         <label for='quantidade'>Quantidade</label>
-                        <input type='number' step="0.001" id='amountIn' name='quantidade' placeholder ='Quantidade'>
+                        <input type='number' step="0.001" id='amountIn' name='amount' placeholder ='Quantidade'>
                     </div>
                     <div class='input-group actions'>
                         <a  hrel='#' class='button cancel' id="buttonInClose">Cancelar</a>
@@ -108,14 +108,14 @@
         <div class='modal'>
             <div id = 'form'>
                 <h2>Saída</h2>
-                <form action='' onsubmit='Form.out.submit(event)'>
+                <form action='' id='outForm'>
                     <div class='input-group'>
                         <label for='codigo'>Código</label>
                         <input type='number' id='codeOut' name='code' placeholder ='Código'>
                     </div>
                     <div class='input-group'>
                         <label for='quantidade'>Quantidade</label>
-                        <input type='number'  step="0.001" id='quantidadeOut' name='quantidade' placeholder ='Quantidade'>
+                        <input type='number'  step="0.001" id='amountOut' name='amount' placeholder ='Quantidade'>
                     </div>
                     <div class='input-group actions'>
                         <a  hrel='#' class='button cancel' id="buttonOutClose">Cancelar</a>

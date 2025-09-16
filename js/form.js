@@ -1,6 +1,7 @@
 import { Storage } from "./storage.js";
 import { DOM } from "./dom.js";
-import { Modal } from "./modal.js"
+import { Modal } from "./modal.js";
+import { Transaction } from "./transaction.js";
 
 export const Form = {
     // Search
@@ -25,8 +26,72 @@ export const Form = {
     },
     
     // In
-    in: () => console.log('in'),
+    codeIn: document.getElementById('codeIn'),
+    amountIn: document.getElementById('amountIn'),
+    clearInValues: () => {
+        codeIn.value = '';
+        amountIn.value = '';
+    },
+    validateIn: (codeIn, amountIn) => {
+        const code = codeIn.value;
+        const amount = Number(amountIn.value);
+        if (code.trim() === '' || String(amount).trim() === '') {
+            throw new Error("Preencha todos os campos");
+        }
+
+    },
+    executeIn: (codeIn, amountIn) => {
+        const code = codeIn.value;
+        const amount = Number(amountIn.value);
+        Transaction.in(code, amount);
+    },
+    in: {
+        async submit(event) {
+            try {
+                event.preventDefault();
+                Form.validateIn(codeIn, amountIn);
+                Form.executeIn(codeIn, amountIn);
+                Form.clearInValues();
+                Modal.in.close();
+            } catch (error) {
+                alert(error.message)
+            }
+        }
+    },
+
     
     //Out
-    out: () => console.log('out')
+    codeOut: document.getElementById('codeOut'),
+    amountOut: document.getElementById('amountOut'),
+    clearOutValues: () => {
+        codeOut.value = '';
+        amountOut.value = '';
+    },
+    validateOut: (codeOut, amountOut) => {
+        const code = codeOut.value;
+        const amount = Number(amountOut.value);
+        if (code.trim() === '' || String(amount).trim() === '') {
+            throw new Error("Preencha todos os campos");
+        }
+
+    },
+    executeOut: (codeOut, amountOut) => {
+        const code = codeOut.value;
+        const amount = Number(amountOut.value);
+        Transaction.out(code, amount);
+    },
+    out: {
+        async submit(event) {
+            try {
+                event.preventDefault();
+                Form.validateOut(codeOut, amountOut);
+                Form.executeOut(codeOut, amountOut);
+                Form.clearOutValues();
+                Modal.out.close();
+            } catch (error) {
+                alert(error.message)
+            }
+        }
+    },
+    
 }

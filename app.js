@@ -23,5 +23,9 @@ document.querySelector('#buttonSearchClose').addEventListener('click', Modal.sea
 //Adding EventListener to form behavior
 document.querySelector('#searchForm').addEventListener('submit', Form.search.submit);
 
+//Adding EventListener to form behavior
+document.querySelector('#inForm').addEventListener('submit', Form.in.submit);
+document.querySelector('#outForm').addEventListener('submit', Form.out.submit);
+
 
 App.init();
