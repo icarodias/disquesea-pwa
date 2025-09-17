@@ -1,6 +1,8 @@
+import { Storage } from "./storage.js";
+
 export const DOM = {
     searchTable: document.querySelector('#table-search tbody'),
-    renderTable: (products) => {
+    renderSearchTable: (products) => {
         DOM.clearSearchTable();
         products.forEach(product => DOM.addToSearchTable(product));
     },
@@ -19,5 +21,36 @@ export const DOM = {
     },
     clearSearchTable: () => {
         DOM.searchTable.innerHTML = ""
+    },
+
+    recordsTable: document.querySelector('#table-records tbody'),
+    renderRecordsTable: async () => {
+        const records = await Storage.getRecords();
+        DOM.clearRecordsTable();
+        records.forEach(record => DOM.addToRecordsTable(record));
+    },
+    addToRecordsTable: (record) => {
+        const tr = document.createElement('tr')
+        tr.innerHTML = DOM.innerHTMLRecord(record)
+        DOM.recordsTable.appendChild(tr)
+    },
+    innerHTMLRecord: (record) => {
+
+        const css =  record.changeTypeIsIn == "entrada" ? 
+            `<img src="./assets/income.svg" alt="Entrada"></img>` :
+            `<img src="./assets/expense.svg" alt="Saída"></img>`
+
+        return `
+            <td class="code">${record.code}</td>
+            <td class="name">${record.name}</td>
+            <td class="amount">${record.amount}</td>
+            <td class="productAmount">${record.productAmount}</td>
+            <td class="type">${record.type}</td>
+            <td class="date">${record.date}</td>
+            <td class="changeType">${css}</td>
+        `
+    },
+    clearRecordsTable: () => {
+        DOM.recordsTable.innerHTML = ""
     }
 }

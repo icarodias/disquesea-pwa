@@ -2,6 +2,7 @@ import { Storage } from "./storage.js";
 import { DOM } from "./dom.js";
 import { Modal } from "./modal.js";
 import { Transaction } from "./transaction.js";
+import { App } from "../app.js";
 
 export const Form = {
     // Search
@@ -19,7 +20,7 @@ export const Form = {
             const products = await Storage.getProducts();
             const filteredProducts = products.filter(item => codes.includes(item.code));
 
-            DOM.renderTable(filteredProducts);
+            DOM.renderSearchTable(filteredProducts);
             Form.clearSearchInput();
             Modal.search.close();
         }
@@ -53,6 +54,7 @@ export const Form = {
                 Form.executeIn(codeIn, amountIn);
                 Form.clearInValues();
                 Modal.in.close();
+                App.reload();
             } catch (error) {
                 alert(error.message)
             }
@@ -81,13 +83,14 @@ export const Form = {
         Transaction.out(code, amount);
     },
     out: {
-        async submit(event) {
+        submit(event) {
             try {
                 event.preventDefault();
                 Form.validateOut(codeOut, amountOut);
                 Form.executeOut(codeOut, amountOut);
                 Form.clearOutValues();
                 Modal.out.close();
+                App.reload();
             } catch (error) {
                 alert(error.message)
             }

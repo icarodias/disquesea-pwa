@@ -1,12 +1,18 @@
 import {Storage} from './js/storage.js'
 import {Modal} from './js/modal.js'
 import {Form} from './js/form.js'
+import { DOM } from './js/dom.js'
 
 
 // APP 
-const App = {
+export const App = {
     init:() => {
         Storage.getProducts();
+        DOM.renderRecordsTable();
+    },
+    reload: () => {
+        DOM.clearSearchTable();
+        App.init();
     }
 }
 
