@@ -20,7 +20,10 @@ export const Transaction = {
         const records = Transaction.records;
 
         const date = new Date()
-        const today = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth()+1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        const today = `${day}/${month}/${year}`
         const changeType = isIn ? 'entrada' : 'saida';
         records.push({
             code,

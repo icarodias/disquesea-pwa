@@ -4,6 +4,9 @@ import { Modal } from "./modal.js";
 import { Transaction } from "./transaction.js";
 import { App } from "../app.js";
 
+
+const whatsappGeneratorUrl = (number, encodedText) => `https://wa.me/${number}?text=${encodedText}`;
+
 export const Form = {
     // Search
     searchCodes: document.getElementById('searchCodes'),
@@ -23,6 +26,27 @@ export const Form = {
             DOM.renderSearchTable(filteredProducts);
             Form.clearSearchInput();
             Modal.search.close();
+        }
+    },
+
+    // Send to Whatsapp
+    phone: document.getElementById('phone'),
+    clearSearchInput() {
+        Form.phone.value = ""
+    },
+    send: {
+        async submit(event) {
+            event.preventDefault();
+
+            const number = Form.phone.value;
+            
+            const response = await fetch(whatsappGeneratorUrl(number,'icaro%20teste'))
+
+            if (response.status != 200) {
+                throw new Error('Error while send whatsapp message')
+            }
+            
+            Modal.send.close();
         }
     },
     

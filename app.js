@@ -26,12 +26,20 @@ document.querySelector('#buttonOutClose').addEventListener('click', Modal.out.cl
 document.querySelector('#buttonSearch').addEventListener('click', Modal.search.open);
 document.querySelector('#buttonSearchClose').addEventListener('click', Modal.search.close);
 
+document.querySelector('#buttonSend').addEventListener('click', Modal.send.open);
+document.querySelector('#buttonSendClose').addEventListener('click', Modal.send.close);
+
 //Adding EventListener to form behavior
 document.querySelector('#searchForm').addEventListener('submit', Form.search.submit);
 
 //Adding EventListener to form behavior
+document.querySelector('#sendForm').addEventListener('submit', Form.send.submit);
+
+//Adding EventListener to form behavior
 document.querySelector('#inForm').addEventListener('submit', Form.in.submit);
 document.querySelector('#outForm').addEventListener('submit', Form.out.submit);
+
+
 
 
 App.init();

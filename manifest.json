@@ -1,0 +1,13 @@
+{
+    "name": "Disquesea PWA",
+    "short_name": "DisqueSea PWA",
+    "start_url": "/",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "assets/disquesea-logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}

@@ -60,7 +60,7 @@
                 <tbody>
                 </tbody>
             </table>
-            <a href="#" class="button new" onclick='Modal.send.open()'>Enviar para whatsapp</a>
+            <a href="#" class="button new" id="buttonSend">Enviar para whatsapp</a>
         </section>
     </main>
     <!-- Search -->
@@ -121,6 +121,25 @@
                     <div class='input-group actions'>
                         <a  hrel='#' class='button cancel' id="buttonOutClose">Cancelar</a>
                         <button>Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Send Storage to whatsapp -->
+    <div class='modal-overlay-send-whatsapp'>
+        <div class='modal'>
+            <div id = 'form'>
+                <h2>Enviar</h2>
+                <form action='' id="sendForm">
+                    <div class='input-group'>
+                        <label for='phone'>Telefone</label>
+                        <input type='text' id='phone' name='phone' placeholder ='(XX) XXXXX-XXXX'>
+                        <small class='help'>Insira o número para enviar histórico</small>
+                    </div>
+                    <div class='input-group actions'>
+                        <a  hrel='#' class='button cancel' id="buttonSendClose">Cancelar</a>
+                        <button>Enviar</button>
                     </div>
                 </form>
             </div>
