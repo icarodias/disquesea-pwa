@@ -45,11 +45,30 @@ export const Form = {
             if (response.status != 200) {
                 throw new Error('Error while send whatsapp message')
             }
-            
+
             Modal.send.close();
         }
     },
     
+    // Load Storage
+    productsJSONString: document.getElementById('productsJSONString'),
+    clearLoadStorageInput() {
+        Form.productsJSONString.value = ""
+    },
+    load: {
+        async submit(event) {
+            event.preventDefault();
+
+            const products = JSON.parse(Form.productsJSONString.value);
+            
+            Storage.setProducts(products);
+            Form.clearLoadStorageInput();
+            Storage.clearRecords()
+            Modal.load.close();
+            App.reload();
+        }
+    },
+
     // In
     codeIn: document.getElementById('codeIn'),
     amountIn: document.getElementById('amountIn'),

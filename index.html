@@ -60,7 +60,11 @@
                 <tbody>
                 </tbody>
             </table>
-            <a href="#" class="button new" id="buttonSend">Enviar para whatsapp</a>
+            <div class="menu">
+                <a href="#" class="button new" id="buttonLoadStorage">Carregar estoque</a>
+                <a href="#" class="button new" id="buttonSend">Enviar estoque</a>
+            </div>
+            
         </section>
     </main>
     <!-- Search -->
@@ -139,6 +143,25 @@
                     </div>
                     <div class='input-group actions'>
                         <a  hrel='#' class='button cancel' id="buttonSendClose">Cancelar</a>
+                        <button>Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Load  Storage -->
+    <div class='modal-overlay-load-storage'>
+        <div class='modal'>
+            <div id = 'form'>
+                <h2>Carregar Estoque</h2>
+                <form action='' id="loadStorageForm">
+                    <div class='input-group'>
+                        <label for='storage'>Estoque</label>
+                        <input type='text' id='productsJSONString' name='productsJSONString'>
+                        <small class='help'>Insira seu estoque em JSON</small>
+                    </div>
+                    <div class='input-group actions'>
+                        <a  hrel='#' class='button cancel' id="buttonLoadStorageClose">Cancelar</a>
                         <button>Enviar</button>
                     </div>
                 </form>

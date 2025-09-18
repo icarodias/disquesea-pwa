@@ -9,13 +9,8 @@ export const Storage = {
             return JSON.parse(localStorage.getItem(PRODUCTS));
         }
 
-        const response = fetch(STORAGE_JSON_DATA);
-
-        if (response.status == 200) {
-            const products = response.json();
-            Storage.setProducts(products)
-            return products;
-        }
+        Storage.setProducts([])
+        return [];
     },
     setProducts: (data) => localStorage.setItem(PRODUCTS, JSON.stringify(data)),
     getRecords: () => (localStorage.getItem(RECORDS) != null) ? JSON.parse(localStorage.getItem(RECORDS)) : [],
@@ -25,5 +20,6 @@ export const Storage = {
         }
         
         localStorage.setItem(RECORDS, JSON.stringify(data))
-    }
+    },
+    clearRecords: () => Storage.setRecords([])
 }

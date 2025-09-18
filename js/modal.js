@@ -14,5 +14,10 @@ export const Modal = {
     send: {
         open: () => document.querySelector('.modal-overlay-send-whatsapp').classList.add('active'),
         close: () => document.querySelector('.modal-overlay-send-whatsapp').classList.remove('active'),
+    },
+    load: {
+        open: () => document.querySelector('.modal-overlay-load-storage').classList.add('active'),
+        close: () => document.querySelector('.modal-overlay-load-storage').classList.remove('active'),
+
     }
 }
