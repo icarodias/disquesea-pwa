@@ -36,9 +36,9 @@ export const DOM = {
     },
     innerHTMLRecord: (record) => {
 
-        const css =  record.changeTypeIsIn == "entrada" ? 
-            `<img src="./assets/income.svg" alt="Entrada"></img>` :
-            `<img src="./assets/expense.svg" alt="Saída"></img>`
+        const css = record.changeType == "entrada" ? 
+            `<img src="./icons/income.svg" alt="Entrada"></img>` :
+            `<img src="./icons/expense.svg" alt="Saída"></img>`;
 
         return `
             <td class="code">${record.code}</td>
