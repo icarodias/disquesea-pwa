@@ -1,7 +1,8 @@
 {
     "name": "Disquesea PWA",
     "short_name": "DisqueSea PWA",
-    "start_url": "/",
+    "start_url": "/disquesea-pwa",
+    "scope":"/disquesea-pwa/",
     "display": "standalone",
     "icons": [
         {
