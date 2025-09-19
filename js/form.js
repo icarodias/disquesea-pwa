@@ -39,14 +39,12 @@ export const Form = {
             event.preventDefault();
 
             const number = Form.phone.value;
-            
-            const response = await fetch(whatsappGeneratorUrl(number,'icaro%20teste'))
-
-            if (response.status != 200) {
-                throw new Error('Error while send whatsapp message')
-            }
-
+            const products = Storage.getProducts();
+        
+            const mensagem = encodeURIComponent(JSON.stringify(products));
+            const url = `https://wa.me/${number}?text=${mensagem}`;
             Modal.send.close();
+            window.open(url, "_blank"); 
         }
     },
     
